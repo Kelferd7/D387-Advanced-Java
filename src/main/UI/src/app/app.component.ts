@@ -30,6 +30,7 @@ export class AppComponent implements OnInit{
   request!:ReserveRoomRequest;
   currentCheckInVal!:string;
   currentCheckOutVal!:string;
+  convertedTimes: string = '';
 
     ngOnInit(){
 
@@ -52,6 +53,16 @@ export class AppComponent implements OnInit{
       this.currentCheckInVal = x.checkin;
       this.currentCheckOutVal = x.checkout;
     });
+  }
+  fetchConvertedTimes() {
+      this.httpClient.get('http://localhost:8080/api/time/convert', {responseType: 'text'}).subscribe(
+        (res: string) => {
+          this.convertedTimes = res;
+        },
+        (error: any) => {
+          console.error(error);
+        }
+      );
   }
 
     onSubmit({value,valid}:{value:Roomsearch,valid:boolean}){

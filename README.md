@@ -26,18 +26,26 @@ Note: Wait until you have completed all the following prompts before you create 
 B.  Modify the Landon Hotel scheduling application for localization and internationalization by doing the following:
 1.   Install the Landon Hotel scheduling application in your integrated development environment (IDE). Modify the Java classes of application to display a welcome message by doing the following:
      a.  Build resource bundles for both English and French (languages required by Canadian law). Include a welcome message in the language resource bundles.
+
         1. Added Translation resource bundle with English and French welcome message. Date: 9/16
+
      b.  Display the welcome message in both English and French by applying the resource bundles using a different thread for each language.
+
         2. Added WelcomeMessage.java, added WelcomeMessageController.java. Updated app.component.ts, updated app.component.html to display H2 headers for welcome message. Update to README.md. Date: 9/18.
+
 Note: You may use Google Translate for the wording of your welcome message.
 
 2.  Modify the front end to display the price for a reservation in currency rates for U.S. dollars ($), Canadian dollars (C$), and euros (€) on different lines.
 
 Note: It is not necessary to convert the values of the prices.
 
+        3. Update to app.component.html to reflect different price currency price options on separate lines. Date: 9/18.
+
 3.  Display the time for an online live presentation held at the Landon Hotel by doing the following:
     a.  Write a Java method to convert times between eastern time (ET), mountain time (MT), and coordinated universal time (UTC) zones.
     b.  Use the time zone conversion method from part B3a to display a message stating the time in all three times zones in hours and minutes for an online, live presentation held at the Landon Hotel. The times should be displayed as ET, MT, and UTC.
+
+        4. Added Timezone.java and TimezoneController.java for time zone conversions. Updated front end to display time zones. Update to README.md. Date: 9/18.     
 
 C.  Explain how you would deploy the Spring application with a Java back end and an Angular front end to cloud services and create a Dockerfile using the attached supporting document "How to Create a Docker Account" by doing the following:
 1.  Build the Dockerfile to create a single image that includes all code, including modifications made in parts B1 to B3. Commit and push the final Dockerfile to GitLab.
