@@ -10,6 +10,7 @@ public class WelcomeMessage implements Runnable {
     public WelcomeMessage(Locale locale){
         this.locale = locale;
     }
+
     public String getMessage(){
         if (message == null) {
             ResourceBundle bundle = ResourceBundle.getBundle("translation", locale);
