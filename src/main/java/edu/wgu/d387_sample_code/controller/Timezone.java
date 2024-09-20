@@ -3,6 +3,7 @@ package edu.wgu.d387_sample_code.controller;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -10,25 +11,16 @@ import java.time.format.DateTimeFormatter;
 @CrossOrigin(origins = "http://localhost:4200")
 public class Timezone {
 
-    private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm");
-
     public static String convertTime() {
-        String meetingTime = "2024-12-11T12:30:00Z";
-        ZonedDateTime meetingZonedDateTime = ZonedDateTime.parse(meetingTime);
+        ZonedDateTime time = ZonedDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
 
-        ZoneId etZone = ZoneId.of("America/New_York");
-        ZoneId mtZone = ZoneId.of("America/Denver");
-        ZoneId utcZone = ZoneId.of("UTC");
+        ZonedDateTime est = time.withZoneSameInstant(ZoneId.of("America/New_York"));
+        ZonedDateTime mst = time.withZoneSameInstant(ZoneId.of("America/Denver"));
+        ZonedDateTime utc = time.withZoneSameInstant(ZoneId.of("UTC"));
 
-        ZonedDateTime utcTime = meetingZonedDateTime.withZoneSameInstant(utcZone);
-        ZonedDateTime mtTime = meetingZonedDateTime.withZoneSameInstant(mtZone);
-        ZonedDateTime etTime = meetingZonedDateTime.withZoneSameInstant(etZone);
+        String times = est.format(formatter) + "EST, " + mst.format(formatter) + "MST, " + utc.format(formatter) + "UTC";
 
-        String utcTimeString = utcTime.format(dateTimeFormatter);
-        String mtTimeString = mtTime.format(dateTimeFormatter);
-        String etTimeString = etTime.format(dateTimeFormatter);
-
-        return utcTimeString + " UTC, " + mtTimeString + " MT, " + etTimeString + " ET";
+        return times;
     }
-
 }

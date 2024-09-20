@@ -1,5 +1,6 @@
 package edu.wgu.d387_sample_code;
 
+import edu.wgu.d387_sample_code.controller.Timezone;
 import edu.wgu.d387_sample_code.controller.WelcomeMessage;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,6 +23,8 @@ public class D387SampleCodeApplication {
 
 		englishThread.start();
 		frenchThread.start();
+
+		System.out.println("Testing time conversion: " + Timezone.convertTime());
 	}
 
 }
